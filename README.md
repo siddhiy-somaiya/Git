@@ -114,3 +114,58 @@ In bash
 
 
 
+
+
+
+
+AIM: KUBERNETES
+1 >kubectl version --client
+2 >kubectl cluster-info
+3 >kubectl create deployment nginx --image=nginx
+4 >kubectl get nodes
+5 >kubectl expose deployment nginx --port=80 --type=NodePort
+6 >kubectl get pods
+7 >kubectl get service nginx
+8 >kubectl port-forward svc/nginx 8082:80
+
+
+9 >kubectl get all
+10 >kubectl scale deployment nginx --replicas=3
+11 >kubectl get pods
+12 >kubectl get deployment nginx
+
+
+
+
+AIM: ANSILBE
+1 >wsl --install
+2 >Open ubuntu
+3 >sudo apt update
+4 >sudo apt upgrade -y
+5 >sudo apt install ansible -y
+6 >ansible --version
+7 >mkdir ansible-practical
+8 >cd ansible-practical
+9 >nano playbook.yml
+[Follow the Indentations]
+- name: Basic Ansible Automation
+hosts: localhost
+connection: local
+tasks:
+- name: Create a text file
+file:
+path: /home/anjali/ansible_file.txt
+state: touch
+- name: Write content to a file
+copy:
+content: "This file is created using Ansible automation"
+dest: /home/anjali/ansible_message.txt
+10 >ansible-playbook playbook.yml
+11 >ls -l /home/anjali/
+12 >cat /home/anjali/ansible_message.txt
+
+
+
+  
+
+
